@@ -1,0 +1,39 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Imager;
+
+die "Usage: $0 num\n" unless @ARGV;
+my $num = shift;
+die "Usage: $0 num\n" if $num =~ /\D/ or ! $num;
+
+my $x = 2625;
+my $fmt = 'docs/images/t-image-%03d.png';
+
+my $out = Imager->new(xsize => $x, ysize => 2 * $x);
+
+my $bottom = sprintf $fmt, $num;
+my $top    = sprintf $fmt, $num+1;
+
+warn "$top\n$bottom\n";
+
+my $top_img = Imager->new;
+$top_img->read(file => $top)
+  or die "Cannot read: ", $top_img->errstr;
+my $bot_img = Imager->new
+  or die Imager->errstr;
+$bot_img->read(file => $bottom)
+  or die "Cannot read: ", $bot_img->errstr;
+
+say $top_img;
+say $bot_img;
+#$bot_img->convert(preset => 'rgb');
+
+say $out->paste(left => 0, top => 0, src => $top_img);
+say $out->paste(left => 0, top => $x, src => $bot_img);
+
+my $out_file = sprintf('new_%03d_%03d.png', $num, $num+1);
+$out->write(file => $out_file);
