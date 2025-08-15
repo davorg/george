@@ -571,5 +571,39 @@
       AmazonStore.enhanceAll({ tag: 'davblog-21' });
     });
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AmazonStore.enhanceAll({ tag: 'davblog-21' });   // you already have this
+      buildStoreGrid({ asin: 'B09VPLGMBN', tag: 'davblog-21' });
+    });
+
+    function buildStoreGrid({ asin, search, tag }) {
+      const grid = document.getElementById('storeGrid');
+      if (!grid) return;
+
+      // Put the visitor’s region first, then the rest alphabetically
+      const current = AmazonStore.detectRegion();
+      const entries = Object.entries(AmazonStore.STORES).sort((a, b) => {
+        if (a[0] === current) return -1;
+        if (b[0] === current) return 1;
+        return a[0].localeCompare(b[0]);
+      });
+
+      for (const [code, meta] of entries) {
+        const href = search
+          ? AmazonStore.url(null, { region: code, tag, search })
+          : AmazonStore.url(asin, { region: code, tag });
+
+        const a = document.createElement('a');
+        a.href = href;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.textContent = `Amazon ${meta.name}`;
+        a.setAttribute('data-store', code);
+        grid.appendChild(a);
+      }
+    }
+  </script>
+
 </body>
 </html>
