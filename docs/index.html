@@ -398,7 +398,11 @@
       <h1>George and the Smart Home</h1>
       <p class="tagline">George lives in a smart home… but it’s not behaving. Join him as he works out what’s gone wonky!</p>
       <h2>by Dave Cross</h2>
-      <button id="buyNowHeader" class="buy-button" type="button">Buy now</button>
+      <button id="buyNowHeader"
+              class="buy-button"
+              data-amazon-asin="B09VPLGMBN"
+              data-amazon-tag="davblog-21"
+              type="button"></button>
     </div>
   </header>
 
@@ -417,7 +421,10 @@
     <!-- CTA / BUY -->
     <section class="cta-wrap" aria-label="Buy the book">
       <div class="cta">
-        <button class="buy-btn" id="buyNow">Buy now</button>
+        <button class="buy-btn"
+                data-amazon-asin="B09VPLGMBN"
+                data-amazon-tag="davblog-21"
+                id="buyNow"></button>
         <div class="buy-hint" id="buyHint">We’ll send you to the right Amazon store for your country.</div>
       </div>
 
@@ -437,83 +444,50 @@
     // ---------- CONFIG ----------
     const CONFIG = {
       images: [
-  {
-    src: "images/image-002-003.png",
-    alt: "George waving outside a yellow house with a red roof, under a sunny blue sky."
-  },
-  {
-    src: "images/image-004-005.png",
-    alt: "A smart speaker with a lightning bolt icon sits on a table in a cosy room with striped blue walls and a framed picture."
-  },
-  {
-    src: "images/image-006-007.png",
-    alt: "A smart speaker with a green power icon on a table in a room with blue striped walls."
-  },
-  {
-    src: "images/image-008-009.png",
-    alt: "George’s dad, wearing an apron, stands in the kitchen next to a smart speaker showing a red timer icon."
-  },
-  {
-    src: "images/image-010-011.png",
-    alt: "George’s sister dances on her bed in a pink bedroom while a smart speaker shows a music equaliser icon."
-  },
-  {
-    src: "images/image-012-013.png",
-    alt: "George’s mum walks towards the stairs while a smart speaker on a table shows a yellow light bulb icon."
-  },
-  {
-    src: "images/image-014-015.png",
-    alt: "George’s mum and dad stand next to a smart speaker showing a green doorbell icon."
-  },
-  {
-    src: "images/image-016-017.png",
-    alt: "George frowns next to a smart speaker with a red X icon in a room with blue striped walls."
-  },
-  {
-    src: "images/image-018-019.png",
-    alt: "George looks upset in his bedroom at night as a smart speaker shows a red X icon."
-  },
-  {
-    src: "images/image-020-021.png",
-    alt: "George stands in the kitchen looking unhappy as a smart speaker shows a red X icon."
-  },
-  {
-    src: "images/image-022-023.png",
-    alt: "George smiles next to a smart speaker showing a red X icon, in a room with blue striped walls."
-  },
-  {
-    src: "images/image-024-025.png",
-    alt: "George looks unhappy near the stairs as a smart speaker shows a red X icon."
-  },
-  {
-    src: "images/image-026-027.png",
-    alt: "George frowns in the living room with a green armchair and yellow lamp, as a smart speaker shows a red X icon."
-  },
-  {
-    src: "images/image-028-029.png",
-    alt: "George looks very sad next to a smart speaker with a red X icon in a room with blue striped walls."
-  }
-      ],
-      stores: {
-        AU:{name:"Australia",  url:"https://www.amazon.com.au/dp/B09VPLGMBN"},
-        BR:{name:"Brazil",     url:"https://www.amazon.com.br/dp/B09VPLGMBN"},
-        CA:{name:"Canada",     url:"https://www.amazon.ca/dp/B09VPLGMBN"},
-        DE:{name:"Germany",    url:"https://www.amazon.de/dp/B09VPLGMBN"},
-        ES:{name:"Spain",      url:"https://www.amazon.es/dp/B09VPLGMBN"},
-        FR:{name:"France",     url:"https://www.amazon.fr/dp/B09VPLGMBN"},
-        IN:{name:"India",      url:"https://www.amazon.in/dp/B09VPLGMBN"},
-        IT:{name:"Italy",      url:"https://www.amazon.it/dp/B09VPLGMBN"},
-        JP:{name:"Japan",      url:"https://www.amazon.co.jp/dp/B09VPLGMBN"},
-        MX:{name:"Mexico",     url:"https://www.amazon.com.mx/dp/B09VPLGMBN"},
-        NL:{name:"Netherlands",url:"https://www.amazon.nl/dp/B09VPLGMBN"},
-        UK:{name:"UK",         url:"https://www.amazon.co.uk/dp/B09VPLGMBN"},
-        US:{name:"US",         url:"https://www.amazon.com/dp/B09VPLGMBN"}
-      },
-      localeMap: new Map([
-        [/^en-GB/i,"UK"], [/^en-AU/i,"AU"], [/^en-CA/i,"CA"], [/^en-US/i,"US"], [/^en-NZ/i,"AU"],
-        [/^fr(-|_)?/i,"FR"], [/^de(-|_)?/i,"DE"], [/^es(-|_)?/i,"ES"], [/^it(-|_)?/i,"IT"],
-        [/^nl(-|_)?/i,"NL"], [/^ja(-|_)?/i,"JP"], [/^pt(-|_)?BR/i,"BR"], [/^hi(-|_)?/i,"IN"]
-      ])
+        {
+          src: "images/image-002-003.png",
+          alt: "George waving outside a yellow house with a red roof, under a sunny blue sky."
+        }, {
+          src: "images/image-004-005.png",
+          alt: "A smart speaker with a lightning bolt icon sits on a table in a cosy room with striped blue walls and a framed picture."
+        }, {
+          src: "images/image-006-007.png",
+          alt: "A smart speaker with a green power icon on a table in a room with blue striped walls."
+        }, {
+          src: "images/image-008-009.png",
+          alt: "George’s dad, wearing an apron, stands in the kitchen next to a smart speaker showing a red timer icon."
+        }, {
+          src: "images/image-010-011.png",
+          alt: "George’s sister dances on her bed in a pink bedroom while a smart speaker shows a music equaliser icon."
+        }, {
+          src: "images/image-012-013.png",
+          alt: "George’s mum walks towards the stairs while a smart speaker on a table shows a yellow light bulb icon."
+        }, {
+          src: "images/image-014-015.png",
+          alt: "George’s mum and dad stand next to a smart speaker showing a green doorbell icon."
+        }, {
+          src: "images/image-016-017.png",
+          alt: "George frowns next to a smart speaker with a red X icon in a room with blue striped walls."
+        }, {
+          src: "images/image-018-019.png",
+          alt: "George looks upset in his bedroom at night as a smart speaker shows a red X icon."
+        }, {
+          src: "images/image-020-021.png",
+          alt: "George stands in the kitchen looking unhappy as a smart speaker shows a red X icon."
+        }, {
+          src: "images/image-022-023.png",
+          alt: "George smiles next to a smart speaker showing a red X icon, in a room with blue striped walls."
+        }, {
+          src: "images/image-024-025.png",
+          alt: "George looks unhappy near the stairs as a smart speaker shows a red X icon."
+        }, {
+          src: "images/image-026-027.png",
+          alt: "George frowns in the living room with a green armchair and yellow lamp, as a smart speaker shows a red X icon."
+        }, {
+          src: "images/image-028-029.png",
+          alt: "George looks very sad next to a smart speaker with a red X icon in a room with blue striped walls."
+        }
+      ]
     };
 
     // ---------- Carousel ----------
@@ -586,53 +560,16 @@
       if (document.hidden) stop(); else play();
     });
 
-    // ---------- Buy button ----------
-    const buyBtnBottom = document.getElementById('buyNow');        // bottom CTA
-    const buyBtnHeader = document.getElementById('buyNowHeader');  // NEW: header CTA
-    const storeGrid = document.getElementById('storeGrid');
     const year = document.getElementById('year');
 
-    // Populate store list
-    for (const [code, store] of Object.entries(CONFIG.stores)){
-      const a = document.createElement('a');
-      a.href = store.url; a.target="_blank"; a.rel="noopener";
-      a.textContent = store.name;
-      a.setAttribute('data-store', code);
-      storeGrid.appendChild(a);
-    }
-
-    function detectRegion(){
-      const langs = navigator.languages || [navigator.language || ''];
-      for (const lang of langs){
-        for (const [regex, region] of CONFIG.localeMap){
-          if (regex.test(lang)) return region;
-        }
-      }
-      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-      if (/London|Europe\//.test(tz)) return 'UK';
-      if (/America\//.test(tz)) return 'US';
-      return 'UK';
-    }
-
-    const region = detectRegion();
-    const store = CONFIG.stores[region] || CONFIG.stores.UK;
-    const label  = `Buy now on Amazon ${store.name}`;
-
-    // set both buttons' labels and actions
-    if (buyBtnHeader) {
-      buyBtnHeader.textContent = label;
-      buyBtnHeader.addEventListener('click', () =>
-        window.open(store.url, '_blank', 'noopener')
-      );
-    }
-    if (buyBtnBottom) {
-      buyBtnBottom.textContent = label;
-      buyBtnBottom.addEventListener('click', () =>
-        window.open(store.url, '_blank', 'noopener')
-      );
-    }
-
     year.textContent = new Date().getFullYear();
+  </script>
+
+  <script src="https://cdn.davecross.co.uk/js/amazon-store/v1/amazon-store.min.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AmazonStore.enhanceAll({ tag: 'davblog-21' });
+    });
   </script>
 </body>
 </html>
